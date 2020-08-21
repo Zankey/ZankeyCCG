@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Board
+  - Hand
+  - Deck
+  - Graveyard
+  - Weapon
+  - Holding
+  - EnemyHand
+  - CardBack
+  - EnemyBoard
+  - EnemyGraveyard
+  - EnemyDeck
+  - EnemyWeapon
+  - EnemyHolding
+  - Frozen
+  - Alseep
+  - DivineShield
+  - Table
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Deck
+  - Stats
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 2781648737
+    locked: 0
+  - name: Table
+    uniqueID: 4123266355
+    locked: 0
+  - name: Shadow
+    uniqueID: 2149218129
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Stats
+    uniqueID: 379013445
+    locked: 0

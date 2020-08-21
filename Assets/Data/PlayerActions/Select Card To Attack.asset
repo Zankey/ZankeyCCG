@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b4ec0a9ef1fd34986b0c1122a05e58, type: 3}
+  m_Name: Select Card To Attack
+  m_EditorClassIdentifier: 
+  playerControlState: {fileID: 11400000, guid: 88830fc66a523804699753211acfde49, type: 2}
+  onPlayerControlState: {fileID: 11400000, guid: faf7d56a7979bcb4ebecfb1d3eebad73,
+    type: 2}
+  currentSelected: {fileID: 11400000, guid: e89008c10cc4fae45bd51e34b5ae9184, type: 2}

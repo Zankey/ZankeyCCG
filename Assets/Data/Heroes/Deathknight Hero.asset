@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af98858ccadc7c4a9625d08e45e32fc, type: 3}
+  m_Name: Deathknight Hero
+  m_EditorClassIdentifier: 
+  cardPrefab: {fileID: 252592340072447614, guid: 4081e494bf670d74bb140dac4d8ddf31,
+    type: 3}
+  dkGhoul: {fileID: 11400000, guid: 92da8260db7efd9449ab70b574825989, type: 2}
+  cardDownLogic: {fileID: 11400000, guid: 5361e095794d495459fed1db58750758, type: 2}
+  heroPowerSprite: {fileID: 21300000, guid: 72226b63907902245b63a651e47dfd4c, type: 3}
+  heroPortrait: {fileID: 21300000, guid: 88b396a09065f214aae7cc9200829e08, type: 3}
+  cost: 2

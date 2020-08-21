@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c4e298a2004304dadb80d45e05ea22, type: 3}
+  m_Name: PlayerBoardCard
+  m_EditorClassIdentifier: 
+  onTargetSelection: {fileID: 11400000, guid: 8db7ebbdc05bfed47a4ec2e72a6cd3b3, type: 2}
+  currentCard: {fileID: 11400000, guid: e89008c10cc4fae45bd51e34b5ae9184, type: 2}
+  targetSelection: {fileID: 11400000, guid: 40545ec58ebf6b14c8e1c44b3e26f896, type: 2}

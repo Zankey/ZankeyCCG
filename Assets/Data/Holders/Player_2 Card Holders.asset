@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ffc7eca6204e36478be48517178411d, type: 3}
+  m_Name: Player_2 Card Holders
+  m_EditorClassIdentifier: 
+  handGrid: {fileID: 11400000, guid: 5f5fd48fc84e08a4b9973f3fc169fccf, type: 2}
+  boardGrid: {fileID: 11400000, guid: de42c71f2d7b1da479e9311a75ab5125, type: 2}
+  emptyManaGrid: {fileID: 11400000, guid: 284a33162d86154448def3687ca3b91f, type: 2}
+  filledManaGrid: {fileID: 11400000, guid: 048d35506dec2434c8858f4c9451d318, type: 2}
+  weaponHolder: {fileID: 11400000, guid: c84893236e086174bbe46b13c3992fcb, type: 2}
+  graveyardHolder: {fileID: 11400000, guid: 8c51ba970e7aa6c46ad49cac24bab8e5, type: 2}

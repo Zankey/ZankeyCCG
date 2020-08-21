@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c0a5beacc4d734c8033a48d92039ad, type: 3}
+  m_Name: Player_2 Turn
+  m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: a0b4f90469682894f9a676e7ee729cf1, type: 2}
+  currentPhase: {fileID: 11400000, guid: 35085f70467a62e428310188bc63ba9e, type: 2}
+  phases:
+  - {fileID: 11400000, guid: 862a399714b441244ae10c433396ba29, type: 2}
+  - {fileID: 11400000, guid: 2627b207a39e51545b8f496a52d489f2, type: 2}
+  - {fileID: 11400000, guid: 6a1c4a5d290aba64a891ff019ac0e255, type: 2}
+  - {fileID: 11400000, guid: 269ed4876915bb346834e55ee362fe01, type: 2}
+  - {fileID: 11400000, guid: 783dd078feb31414dbe52420ac1b46c8, type: 2}
+  turnStartActions:
+  - {fileID: 11400000, guid: ea2aa2f3e1e09ec48b440db8266504c7, type: 2}
