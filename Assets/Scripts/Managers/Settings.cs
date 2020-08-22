@@ -88,6 +88,5 @@ namespace ZCCG
             c.localScale = new Vector3(15,15,0);
         }
 
-
     }
 }

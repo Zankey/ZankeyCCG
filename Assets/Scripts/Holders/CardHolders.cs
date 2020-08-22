@@ -13,6 +13,7 @@ namespace ZCCG
         public SO.TransformVariable filledManaGrid;
         public SO.TransformVariable weaponHolder;
         public SO.TransformVariable graveyardHolder;
+        public SO.TransformVariable deckHolder;
 
         public void LoadPlayer(PlayerHolder p, HeroManager heroStats)
         {

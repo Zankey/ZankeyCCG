@@ -57,7 +57,7 @@ namespace ZCCG
 
             SetupPlayers();
 
-            CreateStartingCards();
+            CreateDeck();
 
             // SetOriginalTags(currentPlayer);
             // SetOriginalTags(otherPlayer);
@@ -83,26 +83,27 @@ namespace ZCCG
         }
 
         //DeckLoader
-        void CreateStartingCards()
+        void CreateDeck()
         {
             ResourcesManager rm = Settings.GetResourcesManager();
 
             for (int p = 0; p < all_players.Length; p++)
             {
-                for (int i = 0; i < all_players[p].startingCards.Length; i++)
+                for (int i = 0; i < all_players[p].startingDeck.Length; i++)
                 {
                     GameObject go = Instantiate(cardPrefab) as GameObject;
                     CardViz v = go.GetComponent<CardViz>();
-                    v.LoadCard(rm.GetCardInstance(all_players[p].startingCards[i]));
+                    v.LoadCard(rm.GetCardInstance(all_players[p].startingDeck[i]));
                     CardInstance inst = go.GetComponent<CardInstance>();
                     inst.SetOwner(all_players[p].username);
                     inst.currentLogic = all_players[p].handLogic;
-                    Settings.SetParentForCard(go.transform, all_players[p].currentHolder.handGrid.value);
-                    all_players[p].handcards.Add(inst);
+                    Settings.SetParentForCard(go.transform, all_players[p].currentHolder.deckHolder.value);
+                    all_players[p].deck.Add(inst);
                 }
+                Debug.Log("Created " + all_players[p].deck.Count + " cards for " + all_players[p].username);
             }
 
-            Settings.RegisterEvent("Created cards for player " + currentPlayer.username);
+            
         }
 
         //This is temporary for player switching
@@ -174,20 +175,25 @@ namespace ZCCG
 
         }
 
-        // public void SetOriginalTags(PlayerHolder p)
-        // {
-        //     foreach (CardInstance inst in p.handcards)
-        //     {
-        //         foreach (CardVizProperties prop in inst.viz.properties)
-        //         {
-        //             if (prop.tag != null)
-        //             {
-        //                 inst.SetTag(prop.tag, true);
-        //             }
-        //         }
-        //     }
-        // }
+        public void DrawCard()
+        {
+            int randomIndex = Random.Range(0, currentPlayer.deck.Count);
+            CardInstance randomCard = currentPlayer.deck[randomIndex];
+            if(currentPlayer.handcards.Count <=9)
+            {
+                Settings.SetParentForCard(randomCard.transform, currentPlayer.currentHolder.handGrid.value);
+                currentPlayer.handcards.Add(randomCard);
+            }
+            else
+            {
+                Settings.SetParentForCard(randomCard.transform, currentPlayer.currentHolder.graveyardHolder.value);
+                Debug.Log(currentPlayer.username +"'s Hand is too full!! sending card to graveyard!");
+            }
+            currentPlayer.deck.Remove(randomCard);         
+        }
+
+        //TODO: similar to draw card, but could add graveyard/enemy hand, enemy deck, ect...
 
     }
-
+        
 }

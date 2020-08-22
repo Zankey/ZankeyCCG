@@ -18,3 +18,4 @@ MonoBehaviour:
   filledManaGrid: {fileID: 11400000, guid: 1be8e16f787248d44a22af666c8750ba, type: 2}
   weaponHolder: {fileID: 11400000, guid: e922c9d72d55cc548986a02864aa5e14, type: 2}
   graveyardHolder: {fileID: 11400000, guid: 8753877271965234cb8bd190f98b41f8, type: 2}
+  deckHolder: {fileID: 11400000, guid: 9932791030da5c44c95feae9ed08be95, type: 2}

@@ -20,11 +20,13 @@ namespace ZCCG
         [System.NonSerialized]
         public int currentArmor = 0;
         [System.NonSerialized]
+        public int fatigueCount = 1;
+        [System.NonSerialized]
         public HeroManager heroStatsUI;
         [System.NonSerialized]
         public HeroPowerHolder powerHolder;
 
-        public Card[] startingCards;
+        public Card[] startingDeck;
 
         public bool isHumanPlayer;
 
