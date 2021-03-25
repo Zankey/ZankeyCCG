@@ -11,6 +11,7 @@ namespace ZCCG
     {
         public static GameManager gameManager;
         public static ManaManager manaManager;
+        public static SpellManager spellManager;
         private static ResourcesManager _resourcesManager;
         private static ConsoleHook _consoleManager;
 

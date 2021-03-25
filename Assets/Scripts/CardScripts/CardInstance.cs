@@ -73,13 +73,18 @@ namespace ZCCG
         public bool clanDragon;
         public bool clanElemental;
         public bool clanTotem;
-        
+
+        // Spell id
+
+        public int spellId;
+
 
         void Start() 
         {
             viz = GetComponent<CardViz>();
             type = viz.card.cardType;
             clanTag = viz.clanTag.GetComponentInChildren<TMP_Text>().text;
+            spellId = viz.card.spellId;
             ResetCardStats();
 
             SetBaseTags();

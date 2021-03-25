@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2166c2733580b734d834d471237c4502, type: 3}
-  m_Name: Mouse Hold With Card
+  m_Script: {fileID: 11500000, guid: 386dfce28c8da7a4db5d5e9c2a290c74, type: 3}
+  m_Name: Select Target_Spell
   m_EditorClassIdentifier: 
-  inst: {fileID: 0}
   playerControlState: {fileID: 11400000, guid: 88830fc66a523804699753211acfde49, type: 2}
   onPlayerControlState: {fileID: 11400000, guid: faf7d56a7979bcb4ebecfb1d3eebad73,
-    type: 2}
-  onTargetSelection: {fileID: 11400000, guid: 8db7ebbdc05bfed47a4ec2e72a6cd3b3, type: 2}
-  spellTargetSelection: {fileID: 11400000, guid: 2f1823d3c1f0cdd409f8274a22bf9d9f,
     type: 2}

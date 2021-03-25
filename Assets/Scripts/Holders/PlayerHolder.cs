@@ -20,6 +20,8 @@ namespace ZCCG
         [System.NonSerialized]
         public int currentArmor = 0;
         [System.NonSerialized]
+        public int currentSpellDamage = 0;
+        [System.NonSerialized]
         public int fatigueCount = 1;
         [System.NonSerialized]
         public HeroManager heroStatsUI;
@@ -34,6 +36,8 @@ namespace ZCCG
         public bool hasAttacked = false;
         [System.NonSerialized]
         public bool isStealth = false;
+        [System.NonSerialized]
+        public bool isSpellsAndHeroPowers = false;
 
         public GE_Logic handLogic;
         public GE_Logic boardLogic;
@@ -183,8 +187,27 @@ namespace ZCCG
         public void SubtractHeroAttack(int atk)
         {
             currentAttack -= atk;
-            if (atk < 0)
+            if (currentAttack < 0)
                 currentAttack = 0;
+
+            if (heroStatsUI != null)
+                heroStatsUI.UpdateAttack();
+        }
+
+        public void AddHeroSpellDamage(int sd)
+        {
+            currentSpellDamage += sd;
+
+            if (heroStatsUI != null)
+                heroStatsUI.UpdateAttack();
+
+        }
+
+        public void SubtractHeroSpellDamage(int sd)
+        {
+            currentSpellDamage -= sd;
+            if (currentSpellDamage < 0)
+                currentSpellDamage = 0;
 
             if (heroStatsUI != null)
                 heroStatsUI.UpdateAttack();

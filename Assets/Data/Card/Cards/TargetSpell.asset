@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a266d4d3fa4641b40bec3145eb7d591b, type: 3}
-  m_Name: BaseSpell
+  m_Name: TargetSpell
   m_EditorClassIdentifier: 
   cardType: {fileID: 11400000, guid: 0134bb4ab8c6e7242ace3a354f5d4b4e, type: 2}
-  cost: 3
+  cost: 2
   attack: 0
   health: 0
-  spellId: 1
+  spellId: 0
+  hasTargeting: 1
   properties:
   - stringValue: Test Spell
     intValue: 0
@@ -25,7 +26,7 @@ MonoBehaviour:
     tag: {fileID: 0}
   - stringValue: 
     intValue: 0
-    sprite: {fileID: 21300000, guid: 63fb0cb17304d3544a38de5da212752e, type: 3}
+    sprite: {fileID: 21300000, guid: 6674bcd7f9bb74447a36424c13961bb8, type: 3}
     element: {fileID: 11400000, guid: a34d3622c143e694dbd00db03153b7d3, type: 2}
     tag: {fileID: 0}
   - stringValue: Test Spell Text.
@@ -34,7 +35,7 @@ MonoBehaviour:
     element: {fileID: 11400000, guid: 014c9aa08e9234b4dbcbba69a07e0c3e, type: 2}
     tag: {fileID: 0}
   - stringValue: 
-    intValue: 3
+    intValue: 2
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: c59aeb2b5403a3b438f62c2ecfab21c3, type: 2}
     tag: {fileID: 0}

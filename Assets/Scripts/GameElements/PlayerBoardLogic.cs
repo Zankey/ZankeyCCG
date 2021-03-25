@@ -57,12 +57,20 @@ namespace ZCCG
                 else
                 if(c.cardType is Spell)
                 {
-                    //inst.CastSpell()
-                    //Raise() spell cast event
+                    if (c.hasTargeting)
+                    {
+                        Settings.spellManager.SetSpellTarget();
+                    }
+                    else
+                    {
+                        Settings.spellManager.CastSpell(inst.spellId);
+                    }
+
                     Settings.manaManager.PayManaCost(inst.viz.card.cost);
                     p.handcards.Remove(inst);
                     inst.SendToGraveyard();
                     Debug.Log("Spell cast, and sent to GY");
+
                 }
             }
             else

@@ -10,7 +10,10 @@ namespace ZCCG.GameStates
     {
         public CardInstance inst;
         public State playerControlState;
+
         public SO.GameEvent onPlayerControlState;
+        
+        //public ZCCG.GameStates.State abilityTargetSelection;
 
         public override void Execute(float d)
         {
@@ -20,6 +23,7 @@ namespace ZCCG.GameStates
 
             if (!mouseIsDown)
             {
+                
                 List<RaycastResult> results = Settings.GetUIObjs();
 
                 foreach (RaycastResult r in results)

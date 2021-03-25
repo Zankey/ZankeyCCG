@@ -20,6 +20,9 @@ namespace ZCCG
         // [System.NonSerialized]
         public int health;
 
+        public int spellId;
+        public bool hasTargeting;
+
         public CardProperties[] properties;
 
         // private void OnEnable() 
