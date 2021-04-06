@@ -15,17 +15,22 @@ namespace ZCCG
         public CurrentSelectedHolder targetHolder;
 
         private void Start() {
-            Settings.spellManager = this; 
-            targetHolder = Settings.gameManager.currentSelectedHolder;
+            Settings.spellManager = this;
+            if (Settings.gameManager.currentSelectedHolder != null)
+            {
+                targetHolder = Settings.gameManager.currentSelectedHolder;
+            }
         }
 
         public bool CastSpell(int spellId)
         {
+            Debug.Log("Spell Was Cast");
             bool spellCompleted = false;
             switch (spellId)
             {
                 //deal 1 spell damage to single target  
                 case(0):
+                    Debug.Log("Case 0: Target - 1 Damage - spell");
                     //spell logic
                     if (targetHolder.currentTargetCard != null)
                     {
@@ -44,11 +49,13 @@ namespace ZCCG
 
                 //deal 1 spell damage to all enemy minions  
                 case (1):
+                    Debug.Log("Case 1: AOE - 1 Damage - Spell");
                     foreach (CardInstance inst in Settings.gameManager.otherPlayer.cardsDown)
                     {
                         inst.SubtractCardHealth(1);
-                        spellCompleted = true;
+                        Debug.Log("1 Damage Dealt to: " + inst.name );
                     }
+                    spellCompleted = true;
                     return spellCompleted;
                 
                 default:

@@ -59,10 +59,12 @@ namespace ZCCG
                 {
                     if (c.hasTargeting)
                     {
+                        Debug.Log("Spell Targeting");
                         Settings.spellManager.SetSpellTarget();
                     }
                     else
                     {
+                        Debug.Log("Spell has No Targeting");
                         Settings.spellManager.CastSpell(inst.spellId);
                     }
 
@@ -70,7 +72,6 @@ namespace ZCCG
                     p.handcards.Remove(inst);
                     inst.SendToGraveyard();
                     Debug.Log("Spell cast, and sent to GY");
-
                 }
             }
             else
