@@ -52,8 +52,8 @@ namespace ZCCG
                     Debug.Log("Case 1: AOE - 1 Damage - Spell");
                     foreach (CardInstance inst in Settings.gameManager.otherPlayer.cardsDown)
                     {
-                        inst.SubtractCardHealth(1);
-                        Debug.Log("1 Damage Dealt to: " + inst.name );
+                        inst.SubtractCardHealth(1 + Settings.gameManager.currentPlayer.currentSpellDamage);
+                        Debug.Log("1 Damage Dealt to: " + inst);
                     }
                     spellCompleted = true;
                     return spellCompleted;

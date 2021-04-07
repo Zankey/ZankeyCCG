@@ -175,6 +175,21 @@ namespace ZCCG
 
         }
 
+        //removes all cards with zero Health, This should be handled in its own intermediate phase between actions. 
+        public void BoardCleanup()
+        {
+            // Send enemies cards to GY first
+            foreach (CardInstance inst in Settings.gameManager.otherPlayer.cardsDown)
+            {
+                inst.RemoveDeadCard();
+            }
+            // Send player's cards to GY second
+            foreach (CardInstance inst in Settings.gameManager.currentPlayer.cardsDown)
+            {
+                inst.RemoveDeadCard();
+            }
+        }
+
         public void DrawCard()
         {
             int randomIndex = Random.Range(0, currentPlayer.deck.Count);

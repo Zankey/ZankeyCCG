@@ -78,8 +78,9 @@ namespace ZCCG
             {
             Settings.RegisterEvent("Not enough mana!", Color.red);
             }
+            
+            // Removes any destroyed cards from the board
+            //Settings.gameManager.BoardCleanup();
         }
-
-
     }
 }

@@ -199,25 +199,31 @@ namespace ZCCG
         public void SubtractCardHealth(int i)
         {
             currentHealth -= i;
-            if(currentHealth <= 0)
-            {
-                ResetCardStats();
-                {
-                    if(GetOwner().Equals(Settings.gameManager.currentPlayer.username))
-                    {
-                        SendToGraveyard();
-                        Settings.gameManager.currentPlayer.cardsDown.Remove(this);
-                    }
-                    else
-                    if(GetOwner().Equals(Settings.gameManager.otherPlayer.username))
-                    {
-                        SendToEnemyGraveyard();
-                        Settings.gameManager.otherPlayer.cardsDown.Remove(this);
-                    }
-                }
-            }
             UpdateCardStatViz();
         }
+
+        // Should be called on each card on the board, after actions were taken, before returning to player control state
+        public void RemoveDeadCard()
+        {
+            if(currentHealth <= 0)
+            {
+                // if tag is deathrattle
+                // Trigger Deathrattle here
+                ResetCardStats();
+                if(GetOwner().Equals(Settings.gameManager.currentPlayer.username))
+                {
+                    SendToGraveyard();
+                    Settings.gameManager.currentPlayer.cardsDown.Remove(this);
+                }
+                else
+                if(GetOwner().Equals(Settings.gameManager.otherPlayer.username))
+                {
+                    SendToEnemyGraveyard();
+                    Settings.gameManager.otherPlayer.cardsDown.Remove(this);
+                }
+            }
+        }
+        
         public void AddCardCost(int i)
         {
             currentCost += i;
@@ -245,14 +251,12 @@ namespace ZCCG
         public void SendToGraveyard()
         {
             Settings.SetParentForCard(this.gameObject.transform, Settings.gameManager.currentPlayer.currentHolder.graveyardHolder.value.transform);
-            //Trigger deathrattles
             isDead = true;
         }
 
         public void SendToEnemyGraveyard()
         {
             Settings.SetParentForCard(this.gameObject.transform, Settings.gameManager.otherPlayer.currentHolder.graveyardHolder.value.transform);
-            //Trigger deathrattles
             isDead = true;
         }
 
