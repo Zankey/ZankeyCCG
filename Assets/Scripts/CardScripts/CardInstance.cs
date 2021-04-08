@@ -199,31 +199,32 @@ namespace ZCCG
         public void SubtractCardHealth(int i)
         {
             currentHealth -= i;
-            UpdateCardStatViz();
-        }
-
-        // Should be called on each card on the board, after actions were taken, before returning to player control state
-        public void RemoveDeadCard()
-        {
-            if(currentHealth <= 0)
+            if (currentHealth <= 0)
             {
                 // if tag is deathrattle
                 // Trigger Deathrattle here
                 ResetCardStats();
-                if(GetOwner().Equals(Settings.gameManager.currentPlayer.username))
+                if (GetOwner().Equals(Settings.gameManager.currentPlayer.username))
                 {
                     SendToGraveyard();
                     Settings.gameManager.currentPlayer.cardsDown.Remove(this);
                 }
                 else
-                if(GetOwner().Equals(Settings.gameManager.otherPlayer.username))
+                if (GetOwner().Equals(Settings.gameManager.otherPlayer.username))
                 {
                     SendToEnemyGraveyard();
                     Settings.gameManager.otherPlayer.cardsDown.Remove(this);
                 }
             }
+            UpdateCardStatViz();
         }
-        
+
+        // Should be called on each card on the board, after actions were taken, before returning to player control state
+        // public void RemoveDeadCard()
+        // {
+            
+        // }
+
         public void AddCardCost(int i)
         {
             currentCost += i;

@@ -57,6 +57,8 @@ namespace ZCCG
                 else
                 if(c.cardType is Spell)
                 {
+                    // Set spell manager able to cast a spell
+                    Settings.spellManager.spellQueued = true;
                     if (c.hasTargeting)
                     {
                         Debug.Log("Spell Targeting");
@@ -80,7 +82,7 @@ namespace ZCCG
             }
             
             // Removes any destroyed cards from the board
-            //Settings.gameManager.BoardCleanup();
+            // Settings.gameManager.BoardCleanup();
         }
     }
 }
