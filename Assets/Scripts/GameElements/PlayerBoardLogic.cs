@@ -27,7 +27,8 @@ namespace ZCCG
             {
                 if (c.cardType is Minion) 
                 {
-                    
+                    // Has battle cry? -> Effect targeting here
+
                     Settings.DropCreatureCard(inst.transform, p.currentHolder.boardGrid.value.transform, inst);
                     Debug.Log("This is the current player holder when dropping" + p.username );
                     inst.currentLogic = cardDownLogic;
@@ -36,6 +37,8 @@ namespace ZCCG
                 }
                 if (c.cardType is Weapon)
                 {
+                    // Has battle cry? -> Effect targeting here
+
                     Transform currentWeapon = p.currentHolder.weaponHolder.value.transform;    
                     //Destroy Current Weapon before adding a new one 
                     if (currentWeapon.childCount > 0)
@@ -63,6 +66,8 @@ namespace ZCCG
                     {
                         Debug.Log("Spell Targeting");
                         Settings.spellManager.SetSpellTarget();
+                        Debug.Log("Set Spell Target Returned");
+
                     }
                     else
                     {

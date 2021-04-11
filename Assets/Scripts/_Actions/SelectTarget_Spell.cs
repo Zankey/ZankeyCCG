@@ -9,16 +9,35 @@ namespace ZCCG
     [CreateAssetMenu(menuName = "Actions/SelectSpellTarget")]
     public class SelectTarget_Spell : Action
     {
-
+        
         public State playerControlState;
         public SO.GameEvent onPlayerControlState;
 
+        [System.NonSerialized]
         private CurrentSelectedHolder currentHolder;
+        [System.NonSerialized]
+        private PlayerHolder currentHero;
+        [System.NonSerialized]
+        private Vector3 currentSelectedPosition;
 
         public override void Execute(float d)
         {
+            Debug.Log("got here - spell targeting State");
+
             currentHolder = Settings.gameManager.currentSelectedHolder;
 
+            if (currentHolder.GetSelectedPlayer() != null)
+            {
+                Debug.Log("Try succeeded for Hero");
+                currentHero = currentHolder.GetSelectedPlayer();
+                currentSelectedPosition = currentHero.heroStatsUI.transform.position;
+            }
+            else
+            {
+                currentHero = null;
+            }
+
+            Settings.gameManager.DrawTargetingLine(currentSelectedPosition);
 
             if (Input.GetMouseButtonDown(0))
             {

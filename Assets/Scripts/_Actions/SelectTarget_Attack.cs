@@ -36,6 +36,7 @@ namespace ZCCG
 
         public override void Execute(float d)
         {
+            Debug.Log("got here - Attack targeting State");
 
             isHero = false;
             isMinion = false;
