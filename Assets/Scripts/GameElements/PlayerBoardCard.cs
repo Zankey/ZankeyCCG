@@ -23,7 +23,6 @@ namespace ZCCG.GameElements
                 Settings.gameManager.SetState(targetSelection);
                 Debug.Log("SetState: Target Selection");
                 onTargetSelection.Raise();
-                
                 Debug.Log("This card can attack! , select target!");
             }
             else

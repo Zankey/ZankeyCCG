@@ -73,15 +73,15 @@ namespace ZCCG
             }
         }
 
-        public void SetSpellTarget()
-        {
-            Debug.Log("Setting spell target");
-            Settings.gameManager.currentSelectedHolder.currentSelectedCard.gameObject.SetActive(false);
-            Settings.gameManager.DrawTargetingLine(Settings.gameManager.currentPlayer.heroStatsUI.gameObject.transform.position);
-            Settings.gameManager.SetState(spellTargetSelection);
-            Debug.Log("Setstate: spellTargetSelection");
-            onTargetSelection.Raise();
-        }
+        // public void SetSpellTarget()
+        // {
+        //     Debug.Log("Setting spell target");
+        //     Settings.gameManager.currentSelectedHolder.currentSelectedCard.gameObject.SetActive(false);
+        //     // Settings.gameManager.DrawTargetingLine(Settings.gameManager.currentPlayer.heroStatsUI.gameObject.transform.position);
+        //     Settings.gameManager.SetState(spellTargetSelection);
+        //     Debug.Log("Setstate: spellTargetSelection");
+        //     onTargetSelection.Raise();
+        // }
         
 
     }

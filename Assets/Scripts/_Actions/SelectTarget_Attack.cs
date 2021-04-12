@@ -141,6 +141,11 @@ namespace ZCCG
                                 }
                                 if(isSpell)
                                 {
+                                    // TODO:
+                                    // Got here!
+                                    // 1. Fix Line draw origin
+                                    // 2. Toggle off visibility of the card
+                                    // 3. Cast the spell
                                     Debug.Log("Casting a spell");
                                 }
                             }

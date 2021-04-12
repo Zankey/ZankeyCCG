@@ -3,7 +3,16 @@ guid: 2166c2733580b734d834d471237c4502
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - inst: {instanceID: 0}
+  - playerControlState: {fileID: 11400000, guid: 88830fc66a523804699753211acfde49,
+      type: 2}
+  - targetSelectionState: {fileID: 11400000, guid: 2f1823d3c1f0cdd409f8274a22bf9d9f,
+      type: 2}
+  - onPlayerControlState: {fileID: 11400000, guid: faf7d56a7979bcb4ebecfb1d3eebad73,
+      type: 2}
+  - onTargetSelectionState: {fileID: 11400000, guid: 8db7ebbdc05bfed47a4ec2e72a6cd3b3,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

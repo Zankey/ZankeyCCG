@@ -10,8 +10,10 @@ namespace ZCCG.GameStates
     {
         public CardInstance inst;
         public State playerControlState;
+        public State targetSelectionState;
 
         public SO.GameEvent onPlayerControlState;
+        public SO.GameEvent onTargetSelectionState;
         
         //public ZCCG.GameStates.State abilityTargetSelection;
 
@@ -35,12 +37,28 @@ namespace ZCCG.GameStates
                         break;
                     }
                 }
-
-                inst.gameObject.SetActive(true);
-                Settings.gameManager.currentSelectedHolder.ResetSelectedCard();
-                Settings.gameManager.SetState(playerControlState);
-                onPlayerControlState.Raise();
-                return;
+                
+                // will use this for spells and battlecries
+                if (inst.viz.card.hasTargeting)
+                {
+                    Debug.Log("Setting spell target");
+                    Settings.gameManager.currentSelectedHolder.currentSelectedCard.gameObject.SetActive(false);
+                    // Settings.gameManager.DrawTargetingLine(Settings.gameManager.currentPlayer.heroStatsUI.gameObject.transform.position);
+                    Settings.gameManager.SetState(targetSelectionState);
+                    Debug.Log("Setstate: spellTargetSelection");
+                    onTargetSelectionState.Raise();
+                    return;
+                }
+                else
+                {
+                    // any normal drop
+                    inst.gameObject.SetActive(true);
+                    Settings.gameManager.currentSelectedHolder.ResetSelectedCard();
+                    Settings.gameManager.SetState(playerControlState);
+                    onPlayerControlState.Raise();
+                    Debug.Log("Card Dropped, now in Player Control State");
+                    return;
+                }
             }
 
         }

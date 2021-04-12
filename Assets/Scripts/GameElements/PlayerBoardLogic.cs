@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace ZCCG
 {
@@ -11,6 +12,8 @@ namespace ZCCG
         public CardInstance inst;
         public SO.TransformVariable areaGrid;
         public GameElements.GE_Logic cardDownLogic;
+        public SO.GameEvent onTargetSelection;
+        public ZCCG.GameStates.State targetSelection;
         
         public override void Execute()
         {
@@ -62,23 +65,30 @@ namespace ZCCG
                 {
                     // Set spell manager able to cast a spell
                     Settings.spellManager.spellQueued = true;
+                    // if spell has targeting, pick target first before casting spell.
                     if (c.hasTargeting)
                     {
-                        Debug.Log("Spell Targeting");
-                        Settings.spellManager.SetSpellTarget();
-                        Debug.Log("Set Spell Target Returned");
+                        // Debug.Log("Setting spell target");
+                        Settings.gameManager.currentSelectedHolder.currentSelectedCard.gameObject.SetActive(false);
+                        // Settings.gameManager.currentSelectedHolder.ResetSelectedCard();
+                        // Settings.gameManager.currentSelectedHolder.SetSelectedPlayer(p);
+                        // // Settings.gameManager.DrawTargetingLine(Settings.gameManager.currentPlayer.heroStatsUI.gameObject.transform.position);
+                        // Debug.Log("Setting State: Target Selection");
+                        // Settings.gameManager.SetState(targetSelection);
+                        // Debug.Log("SetState: Target Selection");
+                        // onTargetSelection.Raise();
+                        // Debug.Log("select spell target!");
 
                     }
                     else
                     {
-                        Debug.Log("Spell has No Targeting");
+                        Debug.Log("Spell has No Targeting, Casting spell");
                         Settings.spellManager.CastSpell(inst.spellId);
+                        Settings.manaManager.PayManaCost(inst.viz.card.cost);
+                        p.handcards.Remove(inst);
+                        inst.SendToGraveyard();
+                        Debug.Log("Spell cast, and sent to GY");
                     }
-
-                    Settings.manaManager.PayManaCost(inst.viz.card.cost);
-                    p.handcards.Remove(inst);
-                    inst.SendToGraveyard();
-                    Debug.Log("Spell cast, and sent to GY");
                 }
             }
             else

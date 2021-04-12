@@ -69,17 +69,18 @@ namespace ZCCG
             if(handcards.Contains(inst))
             {
                 handcards.Remove(inst);
+                Debug.Log("Removing hand card inst");
             }
             if(inst.viz.card.cardType is Weapon)
             {
                 Debug.Log("dropping a weapon");
                 return;
             }
-            if(inst.viz.card.cardType is Spell)
-            {
-                Debug.Log("Casting a spell");
-                return;
-            }
+            // if(inst.viz.card.cardType is Spell)
+            // {
+            //     Debug.Log("Casting a spell");
+            //     return;
+            // }
             else
                 cardsDown.Add(inst);
                 Debug.Log("Minion added to cardsDown");
