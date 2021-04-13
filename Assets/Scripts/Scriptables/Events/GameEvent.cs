@@ -21,9 +21,11 @@ namespace SO
 
         public void Raise()
         {
+            Debug.Log("Raising flag for listener");
             for (int i = 0; i < listeners.Count; i++)
             {
                 listeners[i].Response();
+                Debug.Log("Listener[i]: " + listeners[i]);
             }
         }
     }

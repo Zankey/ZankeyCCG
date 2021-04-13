@@ -3,7 +3,13 @@ guid: ed15cdef22ce1a443ad1846388e89fe0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - inst: {instanceID: 0}
+  - areaGrid: {instanceID: 0}
+  - cardDownLogic: {instanceID: 0}
+  - onTargetSelection: {fileID: 11400000, guid: 8db7ebbdc05bfed47a4ec2e72a6cd3b3,
+      type: 2}
+  - targetSelection: {fileID: 11400000, guid: 40545ec58ebf6b14c8e1c44b3e26f896, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

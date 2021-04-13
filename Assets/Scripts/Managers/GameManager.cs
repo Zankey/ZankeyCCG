@@ -146,7 +146,12 @@ namespace ZCCG
             }
 
             if(currentState != null)
+            {
                 currentState.Tick(Time.deltaTime);
+                // Debug.Log(currentState);
+            }
+
+
         }
 
         public void SetState(State state)

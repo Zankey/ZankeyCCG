@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+// Stores all of the spells, looked up by spell ID
+// TODO:
+// Implement damage field from cards to use instead of hard coding damage so we can reuse spell IDs
 
 namespace ZCCG
 {
@@ -14,7 +16,11 @@ namespace ZCCG
 
         public CurrentSelectedHolder targetHolder;
 
+        // public CardInstance spellTarget;
+
         public bool spellQueued = false;
+
+        //public int damage;
 
         private void Start() {
             Settings.spellManager = this;
@@ -24,8 +30,11 @@ namespace ZCCG
             }
         }
 
-        public void CastSpell(int spellId)
+        public void CastSpell(int spellId, CardInstance targetCard, PlayerHolder targetPlayer)
         {
+            // TODO:
+            // gets the "damage" value from the spell 
+            //damage = Settings.gameManager.currentSelectedHolder.currentSelectedCard.currentAttack;
             Debug.Log("Spell Was Cast");
             if (spellQueued == true)
             {
@@ -35,19 +44,22 @@ namespace ZCCG
                     case(0):
                         Debug.Log("Case 0: Target - 1 Damage - spell");
                         //spell logic
-                        if (targetHolder.currentTargetCard != null)
+                        if (targetCard != null)
                         {
-                            targetHolder.currentTargetCard.SubtractCardHealth( 1 + Settings.gameManager.currentPlayer.currentSpellDamage);
+                            targetCard.SubtractCardHealth( 1 + Settings.gameManager.currentPlayer.currentSpellDamage);
                             spellQueued = false;
+                            Debug.Log("Target minion took 1 damage");
                         }
                         else 
-                        if (targetHolder.currentTargetPlayer != null)
+                        if (targetPlayer != null)
                         {
-                            targetHolder.currentTargetPlayer.SubtractHeroCurrentHealth (1 + Settings.gameManager.currentPlayer.currentSpellDamage);
+                            targetPlayer.SubtractHeroCurrentHealth (1 + Settings.gameManager.currentPlayer.currentSpellDamage);
                             spellQueued = false;
+                            Debug.Log("Target player took 1 damage");
                         }
-                        targetHolder.ResetTargetCard();
-                        targetHolder.ResetTargetPlayer();
+                        Debug.Log("Case 0 Fell Through.... spell ID: "+ spellId + "Target Card: "+ targetCard + "Target Player: "+ targetPlayer);
+                        //targetHolder.ResetTargetCard();
+                        //targetHolder.ResetTargetPlayer();
                         return;
 
                     //deal 1 spell damage to all enemy minions  
@@ -73,13 +85,15 @@ namespace ZCCG
             }
         }
 
-        public void SetSpellTarget()
-        {
-            Settings.gameManager.currentSelectedHolder.currentSelectedCard.gameObject.SetActive(false);
-            Settings.gameManager.DrawTargetingLine(Settings.gameManager.currentPlayer.heroStatsUI.gameObject.transform.position);
-            Settings.gameManager.SetState(spellTargetSelection);
-            onTargetSelection.Raise();
-        }
+        // public void SetSpellTarget()
+        // {
+        //     Debug.Log("Setting spell target");
+        //     Settings.gameManager.currentSelectedHolder.currentSelectedCard.gameObject.SetActive(false);
+        //     // Settings.gameManager.DrawTargetingLine(Settings.gameManager.currentPlayer.heroStatsUI.gameObject.transform.position);
+        //     Settings.gameManager.SetState(spellTargetSelection);
+        //     Debug.Log("Setstate: spellTargetSelection");
+        //     onTargetSelection.Raise();
+        // }
         
 
     }

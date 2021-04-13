@@ -16,11 +16,13 @@ namespace ZCCG.GameElements
 
             if (inst.CanAttack())
             {
+                
                 Settings.gameManager.currentSelectedHolder.ResetSelectedPlayer();
                 Settings.gameManager.currentSelectedHolder.SetSelectedCard(inst);
-                Settings.gameManager.SetState(targetSelection); 
+                Debug.Log("Setting State: Target Selection");
+                Settings.gameManager.SetState(targetSelection);
+                Debug.Log("SetState: Target Selection");
                 onTargetSelection.Raise();
-                
                 Debug.Log("This card can attack! , select target!");
             }
             else

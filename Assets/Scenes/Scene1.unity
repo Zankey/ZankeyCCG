@@ -551,6 +551,7 @@ MonoBehaviour:
   spellTargetSelection: {fileID: 11400000, guid: 2f1823d3c1f0cdd409f8274a22bf9d9f,
     type: 2}
   targetHolder: {fileID: 495016296}
+  spellQueued: 0
 --- !u!1 &118512156
 GameObject:
   m_ObjectHideFlags: 0

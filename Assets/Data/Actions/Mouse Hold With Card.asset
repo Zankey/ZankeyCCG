@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inst: {fileID: 0}
   playerControlState: {fileID: 11400000, guid: 88830fc66a523804699753211acfde49, type: 2}
+  targetSelectionState: {fileID: 11400000, guid: 40545ec58ebf6b14c8e1c44b3e26f896,
+    type: 2}
   onPlayerControlState: {fileID: 11400000, guid: faf7d56a7979bcb4ebecfb1d3eebad73,
     type: 2}
-  onTargetSelection: {fileID: 11400000, guid: 8db7ebbdc05bfed47a4ec2e72a6cd3b3, type: 2}
-  spellTargetSelection: {fileID: 11400000, guid: 2f1823d3c1f0cdd409f8274a22bf9d9f,
+  onTargetSelectionState: {fileID: 11400000, guid: 8db7ebbdc05bfed47a4ec2e72a6cd3b3,
     type: 2}
