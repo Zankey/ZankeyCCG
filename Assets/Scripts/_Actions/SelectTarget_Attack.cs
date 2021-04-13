@@ -50,19 +50,22 @@ namespace ZCCG
                 Debug.Log("Try succeeded for card");
                 currentCard = currentHolder.GetSelectedCard();
                 currentType = currentCard.viz.card.cardType;
-                currentSelectedPosition = currentCard.transform.position;
+                
 
                 if (currentType is Minion)
                 {
                     isMinion = true;
+                    currentSelectedPosition = currentCard.transform.position;
                 }
                 if (currentType is Spell)
                 {
                     isSpell = true;
+                    currentSelectedPosition = Settings.gameManager.currentPlayer.heroStatsUI.transform.position;
                 }
                 if (currentType is Weapon)
                 {
                     isWeapon = true;
+                    currentSelectedPosition = currentCard.transform.position;
                 }
 
             }
@@ -146,6 +149,8 @@ namespace ZCCG
                                     // 1. Fix Line draw origin
                                     // 2. Toggle off visibility of the card
                                     // 3. Cast the spell
+                                    
+                                    Settings.spellManager.CastSpell(currentCard.spellId, inst, null);
                                     Debug.Log("Casting a spell");
                                 }
                             }
@@ -176,6 +181,17 @@ namespace ZCCG
                                     SetHasAttacked(currentHero, null);
                                     isMinion = false;
                                 }
+                                if (isSpell)
+                                {
+                                    // TODO:
+                                    // Got here!
+                                    // 1. Fix Line draw origin
+                                    // 2. Toggle off visibility of the card
+                                    // 3. Cast the spell
+
+                                    Settings.spellManager.CastSpell(currentCard.spellId, null, op);
+                                    Debug.Log("Casting a spell");
+                                }
                             }
                         }
 
@@ -184,10 +200,16 @@ namespace ZCCG
                             Debug.Log(" Your target is your own hero");
                             if(isSpell)
                             {
+                                Settings.spellManager.CastSpell(currentCard.spellId, null, cp);
                                 Debug.Log("Casting a spell");
                             }
                             else
                             Debug.Log("cant attack that target");
+                        }
+
+                        else
+                        {
+                            Debug.Log("No player was found");
                         }
                     }
 

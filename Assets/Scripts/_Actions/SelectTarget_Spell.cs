@@ -57,7 +57,7 @@ namespace ZCCG
                         {
                             Debug.Log("Selecting Card target for spell, currentTargetCard = inst");
                             currentHolder.SetTargetCard(inst);
-                            Settings.spellManager.CastSpell(currentHolder.currentSelectedCard.spellId);
+                            //Settings.spellManager.CastSpell(currentHolder.currentSelectedCard.spellId);
                         }
                     }
                     if (hm != null && validTarget(hm.player, null))
@@ -67,7 +67,7 @@ namespace ZCCG
 
                             Debug.Log("Casting Spell on hero:" + hm.player.username);
                             currentHolder.SetTargetPlayer(hm.player);
-                            Settings.spellManager.CastSpell(currentHolder.currentSelectedCard.spellId);
+                            //Settings.spellManager.CastSpell(currentHolder.currentSelectedCard.spellId);
                         }
 
                     }
