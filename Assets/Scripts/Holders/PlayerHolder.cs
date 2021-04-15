@@ -76,11 +76,6 @@ namespace ZCCG
                 Debug.Log("dropping a weapon");
                 return;
             }
-            // if(inst.viz.card.cardType is Spell)
-            // {
-            //     Debug.Log("Casting a spell");
-            //     return;
-            // }
             else
                 cardsDown.Add(inst);
                 Debug.Log("Minion added to cardsDown");

@@ -626,7 +626,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e8ba71a0f479c3e4da51bbc89058aced, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2544,7 +2544,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 737b0dc9d849e014d9754fc25927ba55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2815,6 +2815,7 @@ MonoBehaviour:
   currentTargetCard: {fileID: 0}
   currentSelectedPlayer: {fileID: 0}
   currentTargetPlayer: {fileID: 0}
+  heldCardVariantOverlay: {fileID: 792169353}
 --- !u!1 &501747912
 GameObject:
   m_ObjectHideFlags: 0
@@ -5463,6 +5464,7 @@ MonoBehaviour:
   cardPrefab: {fileID: 252592340072447614, guid: 4081e494bf670d74bb140dac4d8ddf31,
     type: 3}
   turnButton: {fileID: 1460954479}
+  dropArea: {fileID: 2092192077}
   targetingLine: {fileID: 1913697921}
   currentSelectedHolder: {fileID: 495016296}
   turnIndex: 0
@@ -6434,7 +6436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1126917729
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10195,7 +10197,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 2231b8ea1b6f1d6479704e7457c046d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -13631,7 +13633,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: d02b38dca8ca21944a05cce22e68bab9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -44,6 +44,7 @@ namespace ZCCG
             isWeapon = false;
 
             currentHolder = Settings.gameManager.currentSelectedHolder;
+            Settings.gameManager.dropArea.SetActive(false);
 
             if(currentHolder.GetSelectedCard() != null)
             {
@@ -60,6 +61,8 @@ namespace ZCCG
                 if (currentType is Spell)
                 {
                     isSpell = true;
+                    currentCard.gameObject.SetActive(false);
+                    currentHolder.heldCardVariantOverlay.gameObject.SetActive(false);
                     currentSelectedPosition = Settings.gameManager.currentPlayer.heroStatsUI.transform.position;
                 }
                 if (currentType is Weapon)
@@ -145,13 +148,13 @@ namespace ZCCG
                                 if(isSpell)
                                 {
                                     // TODO:
-                                    // Got here!
-                                    // 1. Fix Line draw origin
+
                                     // 2. Toggle off visibility of the card
-                                    // 3. Cast the spell
                                     
                                     Settings.spellManager.CastSpell(currentCard.spellId, inst, null);
-                                    Debug.Log("Casting a spell");
+                                    Settings.manaManager.PayManaCost(currentCard.viz.card.cost);
+                                    currentCard.SendToGraveyard();
+                                    Debug.Log("Spell cast, and sent to GY");
                                 }
                             }
                         }
@@ -185,12 +188,12 @@ namespace ZCCG
                                 {
                                     // TODO:
                                     // Got here!
-                                    // 1. Fix Line draw origin
                                     // 2. Toggle off visibility of the card
-                                    // 3. Cast the spell
 
                                     Settings.spellManager.CastSpell(currentCard.spellId, null, op);
-                                    Debug.Log("Casting a spell");
+                                    Settings.manaManager.PayManaCost(currentCard.viz.card.cost);
+                                    currentCard.SendToGraveyard();
+                                    Debug.Log("Spell cast, and sent to GY");
                                 }
                             }
                         }
@@ -201,7 +204,9 @@ namespace ZCCG
                             if(isSpell)
                             {
                                 Settings.spellManager.CastSpell(currentCard.spellId, null, cp);
-                                Debug.Log("Casting a spell");
+                                Settings.manaManager.PayManaCost(currentCard.viz.card.cost);
+                                currentCard.SendToGraveyard();
+                                Debug.Log("Spell cast, and sent to GY");
                             }
                             else
                             Debug.Log("cant attack that target");
@@ -213,7 +218,16 @@ namespace ZCCG
                         }
                     }
 
+                    if (isSpell)
+                    {
+                        Debug.Log("Adding spell back to hand");
+                        currentCard.gameObject.SetActive(true);
+                        Settings.gameManager.currentPlayer.handcards.Add(currentCard);
+                    }
+
                     Settings.gameManager.targetingLine.gameObject.SetActive(false);
+                    currentHolder.heldCardVariantOverlay.gameObject.SetActive(true);
+                    Settings.gameManager.dropArea.SetActive(true);
                     currentHolder.ResetSelectedCard();
                     currentHolder.ResetSelectedPlayer();
                     tauntPresent = false;
@@ -226,8 +240,17 @@ namespace ZCCG
 
             if (Input.GetMouseButtonDown(1))
             {
+                // Add the spell back to the current player's hand
+                if (isSpell)
+                {
+                    Debug.Log("Adding spell back to hand");
+                    currentCard.gameObject.SetActive(true);
+                    Settings.gameManager.currentPlayer.handcards.Add(currentCard);
+                }
                 Debug.Log("Right Click, attack aborted");
                 Settings.gameManager.targetingLine.gameObject.SetActive(false);
+                currentHolder.heldCardVariantOverlay.gameObject.SetActive(true);
+                Settings.gameManager.dropArea.SetActive(true);
                 currentHolder.ResetSelectedCard();
                 currentHolder.ResetSelectedPlayer();
                 tauntPresent = false;
