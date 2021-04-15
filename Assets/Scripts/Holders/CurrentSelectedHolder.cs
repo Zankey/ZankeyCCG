@@ -12,6 +12,8 @@ namespace ZCCG
 
         public PlayerHolder currentSelectedPlayer;
         public PlayerHolder currentTargetPlayer;
+
+        public GameObject heldCardVariantOverlay;
         
 
         bool isHeroSelected;

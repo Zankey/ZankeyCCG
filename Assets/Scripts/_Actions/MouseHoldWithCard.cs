@@ -42,8 +42,7 @@ namespace ZCCG.GameStates
                 if (inst.viz.card.hasTargeting)
                 {
                     Debug.Log("Setting spell target");
-                    Settings.gameManager.currentSelectedHolder.currentSelectedCard.gameObject.SetActive(false);
-                    // Settings.gameManager.DrawTargetingLine(Settings.gameManager.currentPlayer.heroStatsUI.gameObject.transform.position);
+                    inst.gameObject.SetActive(false);
                     Settings.gameManager.SetState(targetSelectionState);
                     Debug.Log("Setstate: spellTargetSelection");
                     onTargetSelectionState.Raise();

@@ -20,6 +20,7 @@ namespace ZCCG
         public State currentState;
         public GameObject cardPrefab;
         public GameObject turnButton;
+        public GameObject dropArea;
 
         public LineRenderer targetingLine;
 
