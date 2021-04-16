@@ -72,6 +72,13 @@ namespace ZCCG
                         }
                         spellQueued = false;
                         return;
+
+                    // Gain 3 Armor
+                    case(2):
+                        Debug.Log("Case 2: Gain Armor");
+                        Settings.gameManager.currentPlayer.AddHeroArmor(3);
+                        spellQueued = false;
+                        return;
                     
                     default:
                         targetHolder.ResetAll();

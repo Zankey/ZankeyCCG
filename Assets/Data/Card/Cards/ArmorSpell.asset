@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a266d4d3fa4641b40bec3145eb7d591b, type: 3}
-  m_Name: TargetSpell
+  m_Name: ArmorSpell
   m_EditorClassIdentifier: 
   cardType: {fileID: 11400000, guid: 0134bb4ab8c6e7242ace3a354f5d4b4e, type: 2}
   cost: 2
   attack: 0
   health: 0
-  spellId: 0
-  hasTargeting: 1
+  spellId: 2
+  hasTargeting: 0
   properties:
-  - stringValue: Test Spell
+  - stringValue: Armor Spell
     intValue: 0
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: e02a0e46268285345955e5aef7d8e680, type: 2}
     tag: {fileID: 0}
   - stringValue: 
     intValue: 0
-    sprite: {fileID: 21300000, guid: 6674bcd7f9bb74447a36424c13961bb8, type: 3}
+    sprite: {fileID: 21300000, guid: 06c87484b53c28947ba29d5898cf0089, type: 3}
     element: {fileID: 11400000, guid: a34d3622c143e694dbd00db03153b7d3, type: 2}
     tag: {fileID: 0}
-  - stringValue: Deal 1 damage to the target.
+  - stringValue: Gain 3 Armor.
     intValue: 0
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: 014c9aa08e9234b4dbcbba69a07e0c3e, type: 2}

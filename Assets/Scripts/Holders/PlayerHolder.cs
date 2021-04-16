@@ -120,9 +120,7 @@ namespace ZCCG
             }
             return result;
         }
-        
 
-        //TODO: add armor logic
         public void SubtractHeroCurrentHealth(int damage)
         {
 
