@@ -23,6 +23,10 @@ namespace ZCCG.GameStates
 
             bool mouseIsDown = Input.GetMouseButton(0);
 
+            Card c = inst.viz.card;
+            PlayerHolder p = Settings.gameManager.currentPlayer;
+            bool canUse = p.CanUseCard(c);
+
             if (!mouseIsDown)
             {
                 
@@ -39,7 +43,8 @@ namespace ZCCG.GameStates
                 }
                 
                 // will use this for spells and battlecries
-                if (inst.viz.card.hasTargeting)
+                // bypass normal drop case and go straight to targeting, checking for mana requirement first
+                if (inst.viz.card.hasTargeting && canUse)
                 {
                     Debug.Log("Setting spell target");
                     inst.gameObject.SetActive(false);

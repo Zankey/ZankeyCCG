@@ -75,7 +75,7 @@ namespace ZCCG
             if (player.currentArmor > 0)
             {
                 armor.text = player.currentArmor.ToString();
-                shieldIcon.SetActive(false);
+                shieldIcon.SetActive(true);
             }
             else
             {
