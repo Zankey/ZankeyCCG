@@ -196,21 +196,26 @@ namespace ZCCG
         //     }
         // }
 
-        public void DrawCard()
+        // TODO:
+        // Random card at the moment. Should pick from top later
+        public void DrawCard(int value, PlayerHolder player)
         {
-            int randomIndex = Random.Range(0, currentPlayer.deck.Count);
-            CardInstance randomCard = currentPlayer.deck[randomIndex];
-            if(currentPlayer.handcards.Count <=9)
+            for (int i = 0; i < value; i ++)
             {
-                Settings.SetParentForCard(randomCard.transform, currentPlayer.currentHolder.handGrid.value);
-                currentPlayer.handcards.Add(randomCard);
-            }
-            else
-            {
-                Settings.SetParentForCard(randomCard.transform, currentPlayer.currentHolder.graveyardHolder.value);
-                Debug.Log(currentPlayer.username +"'s Hand is too full!! sending card to graveyard!");
-            }
-            currentPlayer.deck.Remove(randomCard);         
+                int randomIndex = Random.Range(0, player.deck.Count);
+                CardInstance randomCard = player.deck[randomIndex];
+                if(player.handcards.Count <=9)
+                {
+                    Settings.SetParentForCard(randomCard.transform, player.currentHolder.handGrid.value);
+                    player.handcards.Add(randomCard);
+                }
+                else
+                {
+                    Settings.SetParentForCard(randomCard.transform, player.currentHolder.graveyardHolder.value);
+                    Debug.Log(player.username +"'s Hand is too full!! sending card to graveyard!");
+                }
+                player.deck.Remove(randomCard);     
+            }    
         }
 
         //TODO: similar to draw card, but could add graveyard/enemy hand, enemy deck, ect...

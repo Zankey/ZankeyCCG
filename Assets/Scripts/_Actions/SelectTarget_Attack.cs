@@ -151,7 +151,7 @@ namespace ZCCG
 
                                     // 2. Toggle off visibility of the card
                                     
-                                    Settings.spellManager.CastSpell(currentCard.spellId, inst, null);
+                                    Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, inst, null);
                                     Settings.manaManager.PayManaCost(currentCard.viz.card.cost);
                                     currentCard.SendToGraveyard();
                                     Debug.Log("Spell cast, and sent to GY");
@@ -190,7 +190,7 @@ namespace ZCCG
                                     // Got here!
                                     // 2. Toggle off visibility of the card
 
-                                    Settings.spellManager.CastSpell(currentCard.spellId, null, op);
+                                    Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, null, op);
                                     Settings.manaManager.PayManaCost(currentCard.viz.card.cost);
                                     currentCard.SendToGraveyard();
                                     Debug.Log("Spell cast, and sent to GY");
@@ -203,7 +203,7 @@ namespace ZCCG
                             Debug.Log(" Your target is your own hero");
                             if(isSpell)
                             {
-                                Settings.spellManager.CastSpell(currentCard.spellId, null, cp);
+                                Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, null, cp);
                                 Settings.manaManager.PayManaCost(currentCard.viz.card.cost);
                                 currentCard.SendToGraveyard();
                                 Debug.Log("Spell cast, and sent to GY");

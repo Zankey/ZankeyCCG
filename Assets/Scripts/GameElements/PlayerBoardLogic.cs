@@ -69,7 +69,7 @@ namespace ZCCG
                     if (!c.hasTargeting)
                     {
                         Debug.Log("Spell has No Targeting, Casting spell");
-                        Settings.spellManager.CastSpell(inst.spellId, null, null);
+                        Settings.spellManager.CastSpell(inst.spellId, inst.spellValue, null, null);
                         Settings.manaManager.PayManaCost(inst.viz.card.cost);
                         p.handcards.Remove(inst);
                         inst.SendToGraveyard();

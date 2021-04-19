@@ -30,7 +30,7 @@ namespace ZCCG
             }
         }
 
-        public void CastSpell(int spellId, CardInstance targetCard, PlayerHolder targetPlayer)
+        public void CastSpell(int spellId, int spellValue, CardInstance targetCard, PlayerHolder targetPlayer)
         {
             // TODO:
             // gets the "damage" value from the spell 
@@ -40,43 +40,47 @@ namespace ZCCG
             {
                 switch (spellId)
                 {
-                    //deal 1 spell damage to single target  
+                    //deal X spell damage to single target  
                     case(0):
-                        Debug.Log("Case 0: Target - 1 Damage - spell");
+                        Debug.Log("Case 0: Target - x Damage - spell");
                         //spell logic
                         if (targetCard != null)
                         {
-                            targetCard.SubtractCardHealth( 1 + Settings.gameManager.currentPlayer.currentSpellDamage);
+                            targetCard.SubtractCardHealth( spellValue + Settings.gameManager.currentPlayer.currentSpellDamage);
                             spellQueued = false;
-                            Debug.Log("Target minion took 1 damage");
+                            Debug.Log("Target minion took "+ spellValue + " damage");
                         }
                         else 
                         if (targetPlayer != null)
                         {
-                            targetPlayer.SubtractHeroCurrentHealth (1 + Settings.gameManager.currentPlayer.currentSpellDamage);
+                            targetPlayer.SubtractHeroCurrentHealth (spellValue + Settings.gameManager.currentPlayer.currentSpellDamage);
                             spellQueued = false;
-                            Debug.Log("Target player took 1 damage");
+                            Debug.Log("Target player took " + spellValue + " damage");
                         }
-                        Debug.Log("Case 0 Fell Through.... spell ID: "+ spellId + "Target Card: "+ targetCard + "Target Player: "+ targetPlayer);
-                        //targetHolder.ResetTargetCard();
-                        //targetHolder.ResetTargetPlayer();
                         return;
 
-                    //deal 1 spell damage to all enemy minions  
+                    //deal X spell damage to all enemy minions  
                     case (1):
-                        Debug.Log("Case 1: AOE - 1 Damage - Spell");
+                        Debug.Log("Case 1: AOE - " + spellValue + " Damage - Spell");
                         for (int i = Settings.gameManager.otherPlayer.cardsDown.Count - 1; i >= 0 ; i--)
                         {
-                            Settings.gameManager.otherPlayer.cardsDown[i].SubtractCardHealth(1 + Settings.gameManager.currentPlayer.currentSpellDamage);
-                            Debug.Log("1 Damage Dealt to: " + i);
+                            Settings.gameManager.otherPlayer.cardsDown[i].SubtractCardHealth(spellValue + Settings.gameManager.currentPlayer.currentSpellDamage);
+                            Debug.Log("" + spellValue + " Damage Dealt to: " + i);
                         }
                         spellQueued = false;
                         return;
 
-                    // Gain 3 Armor
+                    // Gain X Armor
                     case(2):
                         Debug.Log("Case 2: Gain Armor");
-                        Settings.gameManager.currentPlayer.AddHeroArmor(3);
+                        Settings.gameManager.currentPlayer.AddHeroArmor(spellValue);
+                        spellQueued = false;
+                        return;
+
+                    // Draw Cards
+                    case(3):
+                        Debug.Log("Case 3: Draw Card");
+                        Settings.gameManager.DrawCard(spellValue, targetPlayer);
                         spellQueued = false;
                         return;
                     

@@ -77,6 +77,7 @@ namespace ZCCG
         // Spell id
 
         public int spellId;
+        public int spellValue;
 
 
         void Start() 
@@ -85,6 +86,7 @@ namespace ZCCG
             type = viz.card.cardType;
             clanTag = viz.clanTag.GetComponentInChildren<TMP_Text>().text;
             spellId = viz.card.spellId;
+            spellValue = viz.card.spellValue;
             ResetCardStats();
 
             SetBaseTags();
@@ -201,8 +203,24 @@ namespace ZCCG
             currentHealth -= i;
             if (currentHealth <= 0)
             {
-                // if tag is deathrattle
-                // Trigger Deathrattle here
+                // if tag is deathrattle, Trigger Deathrattle here
+                Debug.Log("IsDeathrattle flag: "+ isDeathrattle);
+                if (tags.TryGetValue("Deathrattle", out isDeathrattle))
+                {
+                    Settings.spellManager.spellQueued = true;
+                    Debug.Log("This is a deathrattle Card, now cast it's deathrattle spell");
+
+                    //Check who owns the card being deathrattled
+                    if (Settings.gameManager.currentPlayer.cardsDown.Contains(this))
+                    {
+                        Settings.spellManager.CastSpell(this.spellId, this.spellValue, null, Settings.gameManager.currentPlayer);
+                    }
+                    else
+                    {
+                        Settings.spellManager.CastSpell(this.spellId, this.spellValue, null, Settings.gameManager.otherPlayer);
+                    }
+                }
+                
                 ResetCardStats();
                 if (GetOwner().Equals(Settings.gameManager.currentPlayer.username))
                 {

@@ -52,7 +52,7 @@ namespace ZCCG
             
             if (GameManager.singleton.currentPlayer.deck.Count > 0)
             {
-                GameManager.singleton.DrawCard();
+                GameManager.singleton.DrawCard(1 , Settings.gameManager.currentPlayer);
             }
             else
             {

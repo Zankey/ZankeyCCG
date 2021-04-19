@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a266d4d3fa4641b40bec3145eb7d591b, type: 3}
+  m_Name: DeathrattleBase
+  m_EditorClassIdentifier: 
+  cardType: {fileID: 11400000, guid: f186fb745d82b5b43b86d06fe0742513, type: 2}
+  cost: 2
+  attack: 3
+  health: 2
+  spellId: 3
+  spellValue: 1
+  hasTargeting: 0
+  properties:
+  - stringValue: Deathrattle Test
+    intValue: 0
+    sprite: {fileID: 0}
+    element: {fileID: 11400000, guid: e02a0e46268285345955e5aef7d8e680, type: 2}
+    tag: {fileID: 0}
+  - stringValue: <b>Deathrattle:</b> Draw a Card.
+    intValue: 0
+    sprite: {fileID: 0}
+    element: {fileID: 11400000, guid: 014c9aa08e9234b4dbcbba69a07e0c3e, type: 2}
+    tag: {fileID: 0}
+  - stringValue: 
+    intValue: 0
+    sprite: {fileID: 21300000, guid: b91254a4d3c801b498fc26817a2e9aa7, type: 3}
+    element: {fileID: 11400000, guid: a34d3622c143e694dbd00db03153b7d3, type: 2}
+    tag: {fileID: 0}
+  - stringValue: 
+    intValue: 2
+    sprite: {fileID: 0}
+    element: {fileID: 11400000, guid: c59aeb2b5403a3b438f62c2ecfab21c3, type: 2}
+    tag: {fileID: 0}
+  - stringValue: 
+    intValue: 3
+    sprite: {fileID: 0}
+    element: {fileID: 11400000, guid: 76ea5fe75a670a7408d6b4f4e8eb3d0a, type: 2}
+    tag: {fileID: 0}
+  - stringValue: 
+    intValue: 2
+    sprite: {fileID: 0}
+    element: {fileID: 11400000, guid: 442e234713960d24eade379fe9687174, type: 2}
+    tag: {fileID: 0}
+  - stringValue: Undead
+    intValue: 0
+    sprite: {fileID: 0}
+    element: {fileID: 11400000, guid: a3223ff139c1ca74db405ff5b47c5b58, type: 2}
+    tag: {fileID: 0}
+  - stringValue: 
+    intValue: 0
+    sprite: {fileID: 21300000, guid: c7cb729a20d725540b4fc112990d1d08, type: 3}
+    element: {fileID: 11400000, guid: d08ee459c81df89409e8121c08dcaab9, type: 2}
+    tag: {fileID: 0}
+  - stringValue: 
+    intValue: 0
+    sprite: {fileID: 21300000, guid: e75d46db2eddc2c4aa2b8ab5b22c7c70, type: 3}
+    element: {fileID: 11400000, guid: 2a221db5eef0b5d4aa274edccdb4aa02, type: 2}
+    tag: {fileID: 0}
+  - stringValue: 
+    intValue: 0
+    sprite: {fileID: 0}
+    element: {fileID: 0}
+    tag: {fileID: 11400000, guid: f44244fca9dc1d0409ef46c1d6ab63cf, type: 2}

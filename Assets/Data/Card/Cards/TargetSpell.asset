@@ -17,6 +17,7 @@ MonoBehaviour:
   attack: 0
   health: 0
   spellId: 0
+  spellValue: 1
   hasTargeting: 1
   properties:
   - stringValue: Test Targeting Spell

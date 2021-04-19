@@ -21,6 +21,7 @@ namespace ZCCG
         public int health;
 
         public int spellId;
+        public int spellValue;
         public bool hasTargeting;
 
         public CardProperties[] properties;
