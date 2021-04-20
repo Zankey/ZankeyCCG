@@ -16,13 +16,16 @@ MonoBehaviour:
   cost: 4
   attack: 6
   health: 4
+  spellId: 4
+  spellValue: 1
+  hasTargeting: 0
   properties:
   - stringValue: EoT Minion
     intValue: 0
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: e02a0e46268285345955e5aef7d8e680, type: 2}
     tag: {fileID: 0}
-  - stringValue: At the end of your turn, test this minion.
+  - stringValue: <b>End of Turn:</b> Deal 1 damge to a random enemy minion.
     intValue: 0
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: 014c9aa08e9234b4dbcbba69a07e0c3e, type: 2}
