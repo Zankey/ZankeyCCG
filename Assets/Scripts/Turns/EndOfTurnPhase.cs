@@ -41,15 +41,15 @@ namespace ZCCG
             //Check for "End of Turn" Cards
             foreach (CardInstance inst in Settings.gameManager.currentPlayer.currentHolder.boardGrid.value.GetComponentsInChildren<CardInstance>())
             {
+                //Do End of turn things Here (If not silenced);
                 if (inst.viz.CheckTags("EndOfTurn"))
                 {
-                    
                     Debug.Log("This card has the EOT tag, Do its stuff!");
                     if (!inst.isSilenced)
                     {
                         Settings.spellManager.CastSpell(inst.spellId, inst.spellValue, null, Settings.gameManager.currentPlayer);
                     }
-                    //Do End of turn things Here
+                    
                 }
                 inst.isAsleep = true;
             }

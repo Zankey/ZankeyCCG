@@ -16,13 +16,16 @@ MonoBehaviour:
   cost: 3
   attack: 1
   health: 2
+  spellId: 5
+  spellValue: 1
+  hasTargeting: 0
   properties:
   - stringValue: SoT Minion
     intValue: 0
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: e02a0e46268285345955e5aef7d8e680, type: 2}
     tag: {fileID: 0}
-  - stringValue: At the start of your turn, test this card.
+  - stringValue: <b>Start of Turn:</b> Deal 1 damage to a random enemy.
     intValue: 0
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: 014c9aa08e9234b4dbcbba69a07e0c3e, type: 2}

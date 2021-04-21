@@ -44,9 +44,14 @@ namespace ZCCG
             foreach(CardInstance inst in Settings.gameManager.currentPlayer.currentHolder.boardGrid.value.GetComponentsInChildren<CardInstance>())
             {
                 if(inst.viz.CheckTags("StartOfTurn"))
+                //Do End of turn things Here (If not silenced);
                 {
                     Debug.Log("This card has the SOT tag!");
-                    //Do Start of turn things
+                    if (!inst.isSilenced)
+                    {
+                        Settings.spellManager.CastSpell(inst.spellId, inst.spellValue, null, Settings.gameManager.currentPlayer);
+                    }
+
                 }
             }
             

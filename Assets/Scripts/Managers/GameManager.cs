@@ -204,10 +204,12 @@ namespace ZCCG
             {
                 int randomIndex = Random.Range(0, player.deck.Count);
                 CardInstance randomCard = player.deck[randomIndex];
+                Debug.Log(player.username + " has " + player.handcards.Count + "Cards in their hand - adding card");
                 if(player.handcards.Count <=9)
                 {
                     Settings.SetParentForCard(randomCard.transform, player.currentHolder.handGrid.value);
                     player.handcards.Add(randomCard);
+                    Debug.Log("Added card - "+player.username + " has " + player.handcards.Count + "Cards in their hand");
                 }
                 else
                 {

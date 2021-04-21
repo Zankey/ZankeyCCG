@@ -147,12 +147,9 @@ namespace ZCCG
                                 }
                                 if(isSpell)
                                 {
-                                    // TODO:
-
-                                    // 2. Toggle off visibility of the card
-                                    
                                     Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, inst, null);
                                     Settings.manaManager.PayManaCost(currentCard.viz.card.cost);
+                                    // currentHero.handcards.Remove(inst);
                                     currentCard.SendToGraveyard();
                                     Debug.Log("Spell cast, and sent to GY");
                                 }
@@ -186,12 +183,9 @@ namespace ZCCG
                                 }
                                 if (isSpell)
                                 {
-                                    // TODO:
-                                    // Got here!
-                                    // 2. Toggle off visibility of the card
-
                                     Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, null, op);
                                     Settings.manaManager.PayManaCost(currentCard.viz.card.cost);
+                                    // currentHero.handcards.Remove(inst);
                                     currentCard.SendToGraveyard();
                                     Debug.Log("Spell cast, and sent to GY");
                                 }
@@ -205,6 +199,7 @@ namespace ZCCG
                             {
                                 Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, null, cp);
                                 Settings.manaManager.PayManaCost(currentCard.viz.card.cost);
+                                // currentHero.handcards.Remove(inst);
                                 currentCard.SendToGraveyard();
                                 Debug.Log("Spell cast, and sent to GY");
                             }
@@ -218,7 +213,8 @@ namespace ZCCG
                         }
                     }
 
-                    if (isSpell)
+                    // If no valid target was selected, and it was a spell, add it back to your hand
+                    if (isSpell && hm == null & inst == null) 
                     {
                         Debug.Log("Adding spell back to hand");
                         currentCard.gameObject.SetActive(true);

@@ -84,8 +84,7 @@ namespace ZCCG
                         return;
 
                     // Deal X damage to a random enemy minion
-                    case(4):
-                          
+                    case(4):  
                         if (Settings.gameManager.otherPlayer.cardsDown.Count > 0)
                         {
                             Debug.Log("Case 4: Deal " + spellValue + " damage to a random minion");
@@ -95,17 +94,36 @@ namespace ZCCG
                         }
                         spellQueued = false;
                         return;
+
+                    // Deal X damage to a random enemy (including hero)
+                    case(5):
+                        if (Settings.gameManager.otherPlayer.cardsDown.Count >= 0)
+                        {
+                            Debug.Log("Case 5: Deal " + spellValue + " damage to a random enemy");
+                            Debug.Log("Other player is currently: " + Settings.gameManager.otherPlayer.username);
+                            int randIndex = Random.Range(0, Settings.gameManager.otherPlayer.cardsDown.Count + 1);
+                            Debug.Log("OtherPlayer's cards on board: " + Settings.gameManager.otherPlayer.cardsDown.Count);
+                            Debug.Log("Random Index is: "+ randIndex);
+
+                            if (Settings.gameManager.otherPlayer.cardsDown.Count == 0 || randIndex >= Settings.gameManager.otherPlayer.cardsDown.Count)
+                            {
+                                Settings.gameManager.otherPlayer.SubtractHeroCurrentHealth(spellValue);
+                                Debug.Log("Random damage dealt to enemy hero");
+                            }                  
+                            else if (Settings.gameManager.otherPlayer.cardsDown.Count > 0 && randIndex <= Settings.gameManager.otherPlayer.cardsDown.Count)
+                            {
+                                Settings.gameManager.otherPlayer.cardsDown[randIndex].SubtractCardHealth(spellValue);
+                                Debug.Log("Random damage dealt to enemy minion");
+                            }
+                        }
+                        spellQueued = false;
+                        return;
                     
                     default:
                         targetHolder.ResetAll();
                         Debug.Log("Spell does not exist");
                         return;
                 }
-            // }
-            // else
-            // {
-            //     return;
-            // }
         }
 
         // public void SetSpellTarget()

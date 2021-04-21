@@ -50,6 +50,7 @@ namespace ZCCG.GameStates
                     inst.gameObject.SetActive(false);
                     Settings.gameManager.SetState(targetSelectionState);
                     Debug.Log("Setstate: spellTargetSelection");
+                    p.handcards.Remove(inst);
                     onTargetSelectionState.Raise();
                     return;
                 }
