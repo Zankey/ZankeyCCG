@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,7 +35,6 @@ namespace ZCCG
                 Settings.gameManager.SetState(null);
                 Settings.gameManager.onPhaseChanged.Raise();
                 isInit = true;
-                //Activate any cards with "End of turn" effects
             }
 
             //Check for "End of Turn" Cards
