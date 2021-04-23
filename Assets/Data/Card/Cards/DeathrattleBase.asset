@@ -62,7 +62,7 @@ MonoBehaviour:
     tag: {fileID: 0}
   - stringValue: 
     intValue: 0
-    sprite: {fileID: 21300000, guid: e75d46db2eddc2c4aa2b8ab5b22c7c70, type: 3}
+    sprite: {fileID: 21300000, guid: 20c486c0ea829cb4590356b24a84becd, type: 3}
     element: {fileID: 11400000, guid: 2a221db5eef0b5d4aa274edccdb4aa02, type: 2}
     tag: {fileID: 0}
   - stringValue: 

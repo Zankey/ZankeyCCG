@@ -17,6 +17,8 @@ namespace ZCCG
         public Image frozen;
         public Image divineShield;
         public Image asleep;
+        public Image deathrattle;
+        public Image specialAbility;
 
         //parses through all elements on the Card ScriptableObject and loads them dynamically
         public void LoadCard(Card c)

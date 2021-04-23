@@ -115,6 +115,22 @@ namespace ZCCG
                 viz.frozen.gameObject.SetActive(true);
             }
 
+            if (tags.TryGetValue("Deathrattle", out isDeathrattle))
+            {
+                viz.deathrattle.gameObject.SetActive(true);
+            }
+
+            if (tags.TryGetValue("StartOfTurn", out isStartOfTurn))
+            {
+                viz.specialAbility.gameObject.SetActive(true);
+            }
+
+            if (tags.TryGetValue("EndOfTurn", out isEndOfTurn))
+            {
+                viz.specialAbility.gameObject.SetActive(true);
+            }
+
+
         }
 
         public bool CanAttack()
