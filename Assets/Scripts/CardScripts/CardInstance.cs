@@ -327,11 +327,13 @@ namespace ZCCG
                {
                     case ("Charge"):
                         tags.Add(t,b);
+                        isCharge = true;
                         break;         
                     // ------------------------//
 
                     case ("Battlecry"):
                         tags.Add(t, b);
+                        isBattlecry = true;
                         break;
                     // ------------------------//
 

@@ -35,7 +35,24 @@ namespace ZCCG
                     Settings.DropCreatureCard(inst.transform, p.currentHolder.boardGrid.value.transform, inst);
                     Debug.Log("This is the current player holder when dropping" + p.username );
                     inst.currentLogic = cardDownLogic;
-                    inst.gameObject.SetActive(true);        
+                    inst.gameObject.SetActive(true); 
+                    Debug.Log(inst.isBattlecry);
+
+                    if (inst.isBattlecry)
+                    {
+                        if (c.hasTargeting)
+                        {
+                            Debug.Log("Setting battlecry target");
+                            Settings.gameManager.SetState(targetSelection);
+                            onTargetSelection.Raise();
+                            return;
+                        }
+                        else
+                        {
+                            Settings.spellManager.CastSpell(inst.spellId, inst.spellValue, null, null);
+                        }
+                    }
+                           
                 
                 }
                 if (c.cardType is Weapon)
@@ -81,9 +98,8 @@ namespace ZCCG
             {
             Settings.RegisterEvent("Not enough mana!", Color.red);
             }
+
             
-            // Removes any destroyed cards from the board
-            // Settings.gameManager.BoardCleanup();
         }
     }
 }

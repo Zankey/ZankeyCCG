@@ -137,6 +137,8 @@ namespace ZCCG
                                 }
                                 if(isMinion)
                                 {
+                                    
+
                                     Debug.Log("attacker's atk/health: "+ currentCard.currentAttack +"/"+ currentCard.currentHealth);
                                     Debug.Log("defender's atk/health: " + inst.currentAttack + "/" + inst.currentHealth);
 
