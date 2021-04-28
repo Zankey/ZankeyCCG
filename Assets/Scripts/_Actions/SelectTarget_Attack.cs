@@ -145,6 +145,7 @@ namespace ZCCG
                                 }
                                 if(isMinion)
                                 {
+                                    // Makes sure to only use spell when it is dropped "battlecry effect"
                                     if (currentCard.viz.card.hasTargeting && Settings.spellManager.spellQueued) // Change this to a battlecry used/unused status on card to check
                                     {
                                         Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, inst, null);
@@ -192,7 +193,8 @@ namespace ZCCG
                                 }
                                 if (isMinion)
                                 {
-                                    if (currentCard.viz.card.hasTargeting && Settings.spellManager.spellQueued) // Change this to a battlecry used/unused status on card to check
+                                    // Makes sure to only use spell when it is dropped "battlecry effect"
+                                    if (currentCard.viz.card.hasTargeting && Settings.spellManager.spellQueued) 
                                     {
                                         Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, null, op);
                                     }
@@ -217,8 +219,8 @@ namespace ZCCG
                         if (hm.player.Equals(cp))
                         {
                             Debug.Log(" Your target is your own hero");
-
-                            if (isMinion && currentCard.viz.card.hasTargeting && Settings.spellManager.spellQueued) // Change this to a battlecry used/unused status on card to check
+                            // Makes sure to only use spell when it is dropped "battlecry effect"
+                            if (isMinion && currentCard.viz.card.hasTargeting && Settings.spellManager.spellQueued) 
                             {
                                 Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, null, cp);
 
