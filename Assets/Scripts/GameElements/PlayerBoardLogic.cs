@@ -72,6 +72,7 @@ namespace ZCCG
                     {
                         if (!c.hasTargeting)
                         {
+                            Settings.spellManager.spellQueued = true;
                             Settings.spellManager.CastSpell(inst.spellId, inst.spellValue, null, null);
                         }
                     }

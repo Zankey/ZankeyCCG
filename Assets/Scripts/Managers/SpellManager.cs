@@ -36,8 +36,8 @@ namespace ZCCG
             // gets the "damage" value from the spell 
             //damage = Settings.gameManager.currentSelectedHolder.currentSelectedCard.currentAttack;
             Debug.Log("Spell Was Cast");
-            //if (spellQueued == true)
-            //{
+            if (spellQueued == true)
+            {
                 switch (spellId)
                 {
                     //deal X spell damage to single target  
@@ -124,6 +124,7 @@ namespace ZCCG
                         Debug.Log("Spell does not exist");
                         return;
                 }
+            }
         }
 
         // public void SetSpellTarget()

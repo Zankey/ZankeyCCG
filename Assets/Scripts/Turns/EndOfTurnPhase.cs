@@ -46,6 +46,7 @@ namespace ZCCG
                     Debug.Log("This card has the EOT tag, Do its stuff!");
                     if (!inst.isSilenced)
                     {
+                        Settings.spellManager.spellQueued = true;
                         Settings.spellManager.CastSpell(inst.spellId, inst.spellValue, null, Settings.gameManager.currentPlayer);
                     }
                     

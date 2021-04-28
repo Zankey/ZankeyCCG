@@ -41,12 +41,12 @@ MonoBehaviour:
     element: {fileID: 11400000, guid: c59aeb2b5403a3b438f62c2ecfab21c3, type: 2}
     tag: {fileID: 0}
   - stringValue: 
-    intValue: 3
+    intValue: 2
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: 76ea5fe75a670a7408d6b4f4e8eb3d0a, type: 2}
     tag: {fileID: 0}
   - stringValue: 
-    intValue: 3
+    intValue: 2
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: 442e234713960d24eade379fe9687174, type: 2}
     tag: {fileID: 0}

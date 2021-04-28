@@ -145,14 +145,19 @@ namespace ZCCG
                                 }
                                 if(isMinion)
                                 {
-
-
+                                    if (currentCard.viz.card.hasTargeting && Settings.spellManager.spellQueued) // Change this to a battlecry used/unused status on card to check
+                                    {
+                                        Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, inst, null);
+                                    }
+                                    else
+                                    {
                                     Debug.Log("attacker's atk/health: "+ currentCard.currentAttack +"/"+ currentCard.currentHealth);
                                     Debug.Log("defender's atk/health: " + inst.currentAttack + "/" + inst.currentHealth);
 
                                     inst.SubtractCardHealth(currentCard.currentAttack);
                                     currentCard.SubtractCardHealth(inst.currentAttack);
                                     SetHasAttacked(currentHero, null);
+                                    }
 
                                 }
                                 if(isSpell)
@@ -187,9 +192,16 @@ namespace ZCCG
                                 }
                                 if (isMinion)
                                 {
+                                    if (currentCard.viz.card.hasTargeting && Settings.spellManager.spellQueued) // Change this to a battlecry used/unused status on card to check
+                                    {
+                                        Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, null, op);
+                                    }
+                                    else
+                                    {
                                     op.SubtractHeroCurrentHealth(currentCard.currentAttack);
                                     SetHasAttacked(currentHero, null);
                                     isMinion = false;
+                                    }
                                 }
                                 if (isSpell)
                                 {
@@ -205,6 +217,13 @@ namespace ZCCG
                         if (hm.player.Equals(cp))
                         {
                             Debug.Log(" Your target is your own hero");
+
+                            if (isMinion && currentCard.viz.card.hasTargeting && Settings.spellManager.spellQueued) // Change this to a battlecry used/unused status on card to check
+                            {
+                                Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, null, cp);
+
+                            }
+
                             if(isSpell)
                             {
                                 Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, null, cp);

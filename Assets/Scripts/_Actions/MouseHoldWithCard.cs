@@ -51,7 +51,13 @@ namespace ZCCG.GameStates
                     {
                         inst.gameObject.SetActive(false);
                     }
-                    
+
+                    // Makes sure to queue the "spell" for a one time use.
+                    if (c.cardType is Minion || c.cardType is Weapon)
+                    {
+                        Settings.spellManager.spellQueued= true;
+                    }
+
                     Settings.gameManager.SetState(targetSelectionState);
                     Debug.Log("Setstate: spellTargetSelection");
                     p.handcards.Remove(inst);
