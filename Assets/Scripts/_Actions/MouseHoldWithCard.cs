@@ -42,12 +42,16 @@ namespace ZCCG.GameStates
                     }
                 }
                 
-                // will use this for spells only. Battlecries targeting will happen after drop
+                // will use this for spells & Battlecries
                 // bypass normal drop case and go straight to targeting, checking for mana requirement first
-                if (inst.viz.card.hasTargeting && canUse && c.cardType is Spell)
+                if (inst.viz.card.hasTargeting && canUse)
                 {
                     Debug.Log("Setting spell target");
-                    inst.gameObject.SetActive(false);
+                    if (c.cardType is Spell)
+                    {
+                        inst.gameObject.SetActive(false);
+                    }
+                    
                     Settings.gameManager.SetState(targetSelectionState);
                     Debug.Log("Setstate: spellTargetSelection");
                     p.handcards.Remove(inst);

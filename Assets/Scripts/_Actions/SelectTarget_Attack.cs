@@ -38,6 +38,9 @@ namespace ZCCG
         {
             Debug.Log("got here - Attack targeting State");
 
+            PlayerHolder op = Settings.gameManager.otherPlayer;
+            PlayerHolder cp = Settings.gameManager.currentPlayer;
+
             isHero = false;
             isMinion = false;
             isSpell = false;
@@ -46,27 +49,34 @@ namespace ZCCG
             currentHolder = Settings.gameManager.currentSelectedHolder;
             Settings.gameManager.dropArea.SetActive(false);
 
+            // hides the held card overlay (for battlecries and spells)
+            if (currentHolder.heldCardVariantOverlay.gameObject != null)
+            {
+                currentHolder.heldCardVariantOverlay.gameObject.SetActive(false);
+            }
+
             if(currentHolder.GetSelectedCard() != null)
             {
-                Debug.Log("Try succeeded for card");
                 currentCard = currentHolder.GetSelectedCard();
                 currentType = currentCard.viz.card.cardType;
                 
-
                 if (currentType is Minion)
                 {
+                    Debug.Log("Minion Battlecry Targeting");
                     isMinion = true;
+                    
                     currentSelectedPosition = currentCard.transform.position;
                 }
                 if (currentType is Spell)
                 {
+                    Debug.Log("Spell Targeting");
                     isSpell = true;
                     currentCard.gameObject.SetActive(false);
-                    currentHolder.heldCardVariantOverlay.gameObject.SetActive(false);
                     currentSelectedPosition = Settings.gameManager.currentPlayer.heroStatsUI.transform.position;
                 }
                 if (currentType is Weapon)
                 {
+                    Debug.Log("Weapon Battlecry Targeting");
                     isWeapon = true;
                     currentSelectedPosition = currentCard.transform.position;
                 }
@@ -102,8 +112,6 @@ namespace ZCCG
                 {
 
                     CardInstance inst = r.gameObject.GetComponentInParent<CardInstance>();
-                    PlayerHolder op = Settings.gameManager.otherPlayer;
-                    PlayerHolder cp = Settings.gameManager.currentPlayer;
                     HeroManager hm = r.gameObject.GetComponentInParent<HeroManager>();
 
                     //Taunt Check
@@ -137,7 +145,7 @@ namespace ZCCG
                                 }
                                 if(isMinion)
                                 {
-                                    
+
 
                                     Debug.Log("attacker's atk/health: "+ currentCard.currentAttack +"/"+ currentCard.currentHealth);
                                     Debug.Log("defender's atk/health: " + inst.currentAttack + "/" + inst.currentHealth);
@@ -216,12 +224,31 @@ namespace ZCCG
                     }
 
                     // If no valid target was selected, and it was a spell, add it back to your hand
-                    if (isSpell && hm == null & inst == null) 
+                    if (isSpell && hm == null && inst == null) 
                     {
                         Debug.Log("Adding spell back to hand");
                         currentCard.gameObject.SetActive(true);
                         Settings.gameManager.currentPlayer.handcards.Add(currentCard);
                     }
+
+                    if (isMinion && currentCard.viz.card.hasTargeting && hm == null && inst == null)
+                    {
+                        Debug.Log("Adding Battlecry Minion back to hand");
+                        currentCard.gameObject.SetActive(true);
+                        cp.cardsDown.Remove(currentCard);
+                        Settings.gameManager.currentPlayer.handcards.Add(currentCard);
+                    }
+
+
+                    // TODO:
+                    // Handle weapon drops with 
+                    // if (isWeapon && currentCard.viz.card.hasTargeting && hm == null && inst == null)
+                    // {
+                    //     Debug.Log("Adding Battlecry Weapon back to hand");
+                    //     currentCard.gameObject.SetActive(true);
+                    //     // cp.currentHolder.weaponHolder.value.gameObject. 
+                    //     Settings.gameManager.currentPlayer.handcards.Add(currentCard);
+                    // }
 
                     Settings.gameManager.targetingLine.gameObject.SetActive(false);
                     currentHolder.heldCardVariantOverlay.gameObject.SetActive(true);
@@ -243,8 +270,28 @@ namespace ZCCG
                 {
                     Debug.Log("Adding spell back to hand");
                     currentCard.gameObject.SetActive(true);
-                    Settings.gameManager.currentPlayer.handcards.Add(currentCard);
+                    cp.handcards.Add(currentCard);
                 }
+
+                if (isMinion && currentCard.viz.card.hasTargeting)
+                {
+                    Debug.Log("Adding Battlecry Minion back to hand");
+                    currentCard.gameObject.SetActive(true);
+                    cp.handcards.Add(currentCard);
+                    cp.cardsDown.Remove(currentCard);
+                }
+
+
+                // TODO:
+                // Handle weapon drops with 
+                // if (isWeapon && currentCard.viz.card.hasTargeting)
+                // {
+                //     Debug.Log("Adding Battlecry Weapon back to hand");
+                //     currentCard.gameObject.SetActive(true);
+                //     // cp.currentHolder.weaponHolder.value.gameObject. 
+                //     Settings.gameManager.currentPlayer.handcards.Add(currentCard);
+                // }
+
                 Debug.Log("Right Click, attack aborted");
                 Settings.gameManager.targetingLine.gameObject.SetActive(false);
                 currentHolder.heldCardVariantOverlay.gameObject.SetActive(true);
