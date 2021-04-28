@@ -49,6 +49,7 @@ namespace ZCCG
                     Debug.Log("This card has the SOT tag!");
                     if (!inst.isSilenced)
                     {
+                        Settings.spellManager.spellQueued = true;
                         Settings.spellManager.CastSpell(inst.spellId, inst.spellValue, null, Settings.gameManager.currentPlayer);
                     }
 

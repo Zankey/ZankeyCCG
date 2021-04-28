@@ -36,18 +36,10 @@ namespace ZCCG
                     Debug.Log("This is the current player holder when dropping" + p.username );
                     inst.currentLogic = cardDownLogic;
                     inst.gameObject.SetActive(true); 
-                    Debug.Log(inst.isBattlecry);
 
-                    if (inst.isBattlecry)
+                    if (inst.isBattlecry && !c.hasTargeting)
                     {
-                        if (c.hasTargeting)
-                        {
-                            Debug.Log("Setting battlecry target");
-                            Settings.gameManager.SetState(targetSelection);
-                            onTargetSelection.Raise();
-                            return;
-                        }
-                        else
+                        if (!c.hasTargeting)
                         {
                             Settings.spellManager.CastSpell(inst.spellId, inst.spellValue, null, null);
                         }
@@ -74,8 +66,16 @@ namespace ZCCG
                     inst.currentLogic = cardDownLogic;
                     Settings.gameManager.currentPlayer.AddHeroAttack(inst.currentAttack);
                     Settings.gameManager.currentPlayer.heroStatsUI.UpdateAttack();
-            
                     inst.gameObject.SetActive(true);
+
+                    if (inst.isBattlecry && !c.hasTargeting)
+                    {
+                        if (!c.hasTargeting)
+                        {
+                            Settings.spellManager.spellQueued = true;
+                            Settings.spellManager.CastSpell(inst.spellId, inst.spellValue, null, null);
+                        }
+                    }
                 }
                 else
                 if(c.cardType is Spell)
