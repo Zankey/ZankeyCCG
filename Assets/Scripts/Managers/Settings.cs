@@ -66,7 +66,10 @@ namespace ZCCG
 
             SetParentForCard(c,p);
 
-            manaManager.PayManaCost(cardInst.viz.card.cost);
+            if (!cardInst.viz.card.hasTargeting) // otherwise we want to reduce mana cost after battlecry has finished
+            {
+                manaManager.PayManaCost(cardInst.viz.card.cost);
+            }
             gameManager.currentPlayer.DropCard(cardInst);
 
         }

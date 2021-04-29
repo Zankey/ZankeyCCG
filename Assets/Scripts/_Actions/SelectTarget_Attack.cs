@@ -149,6 +149,7 @@ namespace ZCCG
                                     if (currentCard.viz.card.hasTargeting && Settings.spellManager.spellQueued) // Change this to a battlecry used/unused status on card to check
                                     {
                                         Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, inst, null);
+                                        Settings.manaManager.PayManaCost(currentCard.viz.card.cost);
                                     }
                                     else
                                     {
@@ -197,6 +198,7 @@ namespace ZCCG
                                     if (currentCard.viz.card.hasTargeting && Settings.spellManager.spellQueued) 
                                     {
                                         Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, null, op);
+                                        Settings.manaManager.PayManaCost(currentCard.viz.card.cost);
                                     }
                                     else
                                     {
@@ -219,10 +221,11 @@ namespace ZCCG
                         if (hm.player.Equals(cp))
                         {
                             Debug.Log(" Your target is your own hero");
-                            // Makes sure to only use spell when it is dropped "battlecry effect"
+                            // Makes sure to only use spell when it is dropped "battlecry effect" and pay mana cost after targets have been chosen
                             if (isMinion && currentCard.viz.card.hasTargeting && Settings.spellManager.spellQueued) 
                             {
                                 Settings.spellManager.CastSpell(currentCard.spellId, currentCard.spellValue, null, cp);
+                                Settings.manaManager.PayManaCost(currentCard.viz.card.cost);
 
                             }
 
@@ -256,6 +259,7 @@ namespace ZCCG
                     {
                         Debug.Log("Adding Battlecry Minion back to hand");
                         currentCard.gameObject.SetActive(true);
+                        Settings.SetParentForCard(currentCard.transform, cp.currentHolder.handGrid.value);
                         cp.cardsDown.Remove(currentCard);
                         Settings.gameManager.currentPlayer.handcards.Add(currentCard);
                     }
@@ -294,10 +298,12 @@ namespace ZCCG
                     cp.handcards.Add(currentCard);
                 }
 
-                if (isMinion && currentCard.viz.card.hasTargeting)
+                if (isMinion && currentCard.viz.card.hasTargeting && Settings.spellManager.spellQueued)
                 {
                     Debug.Log("Adding Battlecry Minion back to hand");
                     currentCard.gameObject.SetActive(true);
+                    Settings.SetParentForCard(currentCard.transform, cp.currentHolder.handGrid.value);
+                    currentCard.currentLogic = cp.handLogic;
                     cp.handcards.Add(currentCard);
                     cp.cardsDown.Remove(currentCard);
                 }
